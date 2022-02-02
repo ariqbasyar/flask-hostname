@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-hostname-nodeport
+spec:
+  type: NodePort
+  selector:
+    app: flask-hostname-deployment
+  ports:
+    - port: 30080
+      targetPort: 8000
+      nodePort: 30080
+      name: flask-port
+
